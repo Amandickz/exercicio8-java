@@ -37,4 +37,13 @@ public class HourContract {
     public void setHours(Integer hours) {
         this.hours = hours;
     }
+
+    @Override
+    public String toString() {
+        return "HourContract{" +
+                "date=" + date +
+                ", valuePerHour=" + valuePerHour +
+                ", hours=" + hours +
+                '}';
+    }
 }

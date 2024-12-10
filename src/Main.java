@@ -1,4 +1,5 @@
 import classes.Departament;
+import classes.HourContract;
 import classes.Worker;
 import entities.WorkerLevel;
 
@@ -42,11 +43,19 @@ public class Main {
         System.out.print("Quantos contratos esse funcionário tem? ");
         int quant = scan.nextInt();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
         for(int i = 0; i < quant; i++) {
 
             System.out.println("Informações do contrato #" + (i + 1) + ": ");
             System.out.print("Data (dd/mm/yyyy): ");
+            Date contractDate = sdf.parse(scan.next());
+            System.out.print("Valor por hora: ");
+            double valuePerHour = scan.nextDouble();
+            System.out.print("Duração (horas): ");
+            Integer hours = scan.nextInt();
 
+            worker.addContract(new HourContract(contractDate, valuePerHour, hours));
 
         }
 

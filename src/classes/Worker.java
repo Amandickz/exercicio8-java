@@ -2,6 +2,8 @@ package classes;
 
 import entities.WorkerLevel;
 
+import java.util.ArrayList;
+
 public class Worker {
 
     private String name;
@@ -9,6 +11,8 @@ public class Worker {
     private double baseSalary;
 
     Departament departament;
+
+    ArrayList<HourContract> contracts = new ArrayList<>();
 
     public Worker(String name, WorkerLevel level, double baseSalary, Departament departament) {
         this.name = name;
@@ -57,5 +61,10 @@ public class Worker {
                 ", baseSalary=" + baseSalary +
                 ", departament=" + departament +
                 '}';
+    }
+
+    public void addContract(HourContract contract) {
+        contracts.add(contract);
+        //System.out.println(contract.toString());
     }
 }
