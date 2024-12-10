@@ -65,6 +65,14 @@ public class Worker {
 
     public void addContract(HourContract contract) {
         contracts.add(contract);
-        //System.out.println(contract.toString());
+    }
+
+    public void removeContract(HourContract contract) {
+        for(int i = 0; i < contracts.size(); i++) {
+            HourContract c = (HourContract) contracts.get(i);
+            if(contract.equals(c)){
+                contracts.remove(i);
+            }
+        }
     }
 }
