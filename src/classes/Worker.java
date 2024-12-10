@@ -3,6 +3,8 @@ package classes;
 import entities.WorkerLevel;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Worker {
 
@@ -74,5 +76,24 @@ public class Worker {
                 contracts.remove(i);
             }
         }
+    }
+
+    public double Income(Integer month, Integer year) {
+
+        double addSalary = 0;
+
+        for(HourContract contract : contracts) {
+            Date contractDate = contract.getDate();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(contractDate);
+            Integer c_year = cal.get(Calendar.YEAR);
+            Integer c_month = 1 + cal.get(Calendar.MONTH);
+
+            if(c_year.equals(year) && c_month.equals(month)) {
+                addSalary += contract.getHours() * contract.getValuePerHour();
+            }
+
+        }
+        return addSalary;
     }
 }

@@ -38,8 +38,6 @@ public class Main {
 
         Worker worker = new Worker(name, WorkerLevel.valueOf(level), baseSalary, new Departament(departament));
 
-        System.out.println(worker.toString());
-
         System.out.print("Quantos contratos esse funcionário tem? ");
         int quant = scan.nextInt();
 
@@ -59,7 +57,23 @@ public class Main {
 
         }
 
-        /*SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.print("\nDigite o mês e o ano para calcular a renda (mm/yyyy): ");
+        String monthAndYear = scan.next();
+        Integer month = Integer.parseInt(monthAndYear.substring(0, 2));
+        Integer year = Integer.parseInt(monthAndYear.substring(3));
+
+        baseSalary += worker.Income(month, year);
+
+        System.out.println("Nome: " + worker.getName());
+        System.out.println("Departamento: " + worker.getDepartament());
+        System.out.printf("Salário com Adicional em %s: R$ %.2f", monthAndYear, baseSalary);
+
+
+        /*
+
+        Testes de código por datas:
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         System.out.print("Digite a data: ");
         Date contractDate = sdf.parse(scan.nextLine());
         System.out.print(contractDate);

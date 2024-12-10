@@ -18,8 +18,6 @@ public class Departament {
 
     @Override
     public String toString() {
-        return "Departament{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }
